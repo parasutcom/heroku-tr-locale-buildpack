@@ -1,4 +1,6 @@
 #!/bin/bash -e
 
-psql -h localhost -c 'CREATE COLLATION "tr_TR" FROM "en_US";' postgres_buildpack_db
-psql -h localhost -c 'CREATE COLLATION "tr_TR.utf8" FROM "en_US.utf8";' postgres_buildpack_db
+psql -h localhost -c 'CREATE COLLATION "tr_TR" FROM "en_US";' postgres_buildpack_db > /dev/null
+echo "       Created tr_TR collation"
+psql -h localhost -c 'CREATE COLLATION "tr_TR.utf8" FROM "en_US.utf8";' postgres_buildpack_db > /dev/null
+echo "       Created tr_TR.utf8 collation"

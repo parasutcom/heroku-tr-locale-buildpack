@@ -1,6 +1,11 @@
 #!/bin/bash -e
 
 psql -h localhost -c 'CREATE COLLATION "tr_TR" FROM "en_US";' postgres_buildpack_db > /dev/null
-echo "       Created tr_TR collation"
+echo "       Created tr_TR collation postgres_buildpack_db"
 psql -h localhost -c 'CREATE COLLATION "tr_TR.utf8" FROM "en_US.utf8";' postgres_buildpack_db > /dev/null
-echo "       Created tr_TR.utf8 collation"
+echo "       Created tr_TR.utf8 collation postgres_buildpack_db"
+
+psql -h localhost -c 'CREATE COLLATION "tr_TR" FROM "en_US";' parasut_global_test > /dev/null
+echo "       Created tr_TR collation for parasut_global_test"
+psql -h localhost -c 'CREATE COLLATION "tr_TR.utf8" FROM "en_US.utf8";' parasut_global_test > /dev/null
+echo "       Created tr_TR.utf8 collation for parasut_global_test"
